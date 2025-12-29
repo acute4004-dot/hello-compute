@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>World Chat Demo</title>
+  <style>
+    body { font-family: Arial; background: #f0f0f0; margin:0; padding:0;}
+    .chat-container { max-width:500px; margin:40px auto; background:#fff; padding:20px; border-radius:10px; box-shadow:0 0 10px #ccc;}
+    #messages { height:300px; overflow-y:auto; border:1px solid #ccc; padding:10px; margin-bottom:10px;}
+    input { width:75%; padding:8px; margin-right:5px;}
+    button { width:20%; padding:8px; background:#4CAF50; color:white; border:none; border-radius:5px; cursor:pointer;}
+    button:hover { background:#45a049;}
+  </style>
+</head>
+<body>
+
+<div class="chat-container">
+  <h2>🌍 World Chat Demo</h2>
+  <div id="messages"></div>
+  <input id="msg" placeholder="Type a message">
+  <button onclick="sendMessage()">Send</button>
+</div>
+
+<script>
+const messagesDiv = document.getElementById("messages");
+const input = document.getElementById("msg");
+
+function sendMessage() {
+  const text = input.value.trim();
+  if(text === "") return;
+
+  const p = document.createElement("p");
+  p.innerText = "You: " + text;
+  messagesDiv.appendChild(p);
+
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+  input.value = "";
+}
+</script>
+
+</body>
+</html>
